@@ -22,5 +22,6 @@ public class Main extends ListenerAdapter {
             event.getChannel().sendMessage("Pong!").queue();
         }
 
+
     }
 }
