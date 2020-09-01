@@ -12,6 +12,8 @@ public class ping extends Command {
 
     @Override
     protected void execute(CommandEvent e){
+        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
+
         e.reply("Pong!");
     }
 }

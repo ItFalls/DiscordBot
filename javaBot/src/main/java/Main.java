@@ -1,5 +1,4 @@
-import Commands.member;
-import Commands.ping;
+import Commands.*;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import net.dv8tion.jda.api.AccountType;
@@ -14,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public class Main extends ListenerAdapter {
     public static void main (String[] args) throws Exception {
         JDA builder = new JDABuilder(AccountType.BOT).setToken("NzQ5Njc4NzE2MjUwMjI2NzA4.X0vetg.Fn2urwHAGHdY5Erzlc865S40Nps").build();
+        builder.addEventListener(new Filter());
 
         CommandClientBuilder cmd = new CommandClientBuilder();
         cmd.setOwnerId("749678716250226708");
@@ -62,8 +62,12 @@ public class Main extends ListenerAdapter {
             }
         });
 
+        cmd.addCommand(new anti());
         cmd.addCommand(new ping());
         cmd.addCommand(new member());
+        cmd.addCommand(new avatar());
+        cmd.addCommand(new meme());
+        cmd.addCommand(new fanclub());
 
         CommandClient client = cmd.build();
         builder.addEventListener(client);
