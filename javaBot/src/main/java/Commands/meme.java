@@ -66,7 +66,7 @@ public class meme extends Command {
                     e.getChannel().sendMessage(emb.build()).queue();
                 }
                 else{
-                    e.getChannel().sendMessage(":woman_gesturing_no:  No joining my OnlyFans :woman_gesturing_no: ").queue();
+                    e.getChannel().sendMessage(":woman_gesturing_no:  No peeking at my OnlyFans :woman_gesturing_no: ").queue();
                 }
             } catch (IOException | ParseException | IndexOutOfBoundsException | ClassCastException exception) {
                 e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
