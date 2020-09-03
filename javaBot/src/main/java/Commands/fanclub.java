@@ -6,7 +6,7 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 public class fanclub extends Command {
     public fanclub() {
         this.name = "fanclub";
-        this.aliases = new String[]{"subreddit"};
+        this.aliases = new String[]{"onlyfans"};
         this.help = "For checking out my fanclub";
     }
 

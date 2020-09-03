@@ -11,8 +11,6 @@ public class anti extends Command {
 
     @Override
     protected void execute(CommandEvent e){
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
-
         e.reply("steve!");
     }
 }

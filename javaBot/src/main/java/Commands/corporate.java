@@ -22,9 +22,7 @@ public class corporate extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
-
-        JSONParser parser = new JSONParser();
+     JSONParser parser = new JSONParser();
         String phrase = "";
 
         try {

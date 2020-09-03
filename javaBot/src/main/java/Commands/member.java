@@ -16,8 +16,6 @@ public class member extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
-
         String message = e.getMessage().getContentDisplay();
         message = message.replaceAll("  ", " ");
         String[] arr = message.split(" ");
@@ -32,18 +30,22 @@ public class member extends Command {
             else
                 emb.setColor(Color.gray);
         } else {
-            User user = e.getGuild().getMembersByEffectiveName(arr[1], true).get(0).getUser();
-            emb.setTitle("Member: " + user.getName());
-            emb.addField("Date Joined Discord", user.getTimeCreated().getMonthValue() + "/" + user.getTimeCreated().getDayOfMonth() + "/" + user.getTimeCreated().getYear(), true);
-            emb.setThumbnail(user.getAvatarUrl());
-            if (e.getGuild().getMembersByEffectiveName(arr[1], true).get(0).getRoles().size() > 0)
-                emb.setColor(e.getMember().getRoles().get(0).getColor());
-            else
-                emb.setColor(Color.gray);
+            try {
+                User user = e.getMessage().getMentionedUsers().get(0);
+                emb.setTitle("Member: " + user.getName());
+                emb.addField("Date Joined Discord", user.getTimeCreated().getMonthValue() + "/" + user.getTimeCreated().getDayOfMonth() + "/" + user.getTimeCreated().getYear(), true);
+                emb.setThumbnail(user.getAvatarUrl());
+                if (e.getGuild().getMember(user).getRoles().size() > 0)
+                    emb.setColor(e.getMember().getRoles().get(0).getColor());
+                else
+                    emb.setColor(Color.gray);
+            }catch (IndexOutOfBoundsException exception){
+                e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
+                exception.printStackTrace();
+            }
         }
 
         e.getChannel().sendMessage(emb.build()).queue();
-
     }
 
 }

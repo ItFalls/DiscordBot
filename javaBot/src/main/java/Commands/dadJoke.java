@@ -16,8 +16,6 @@ public class dadJoke extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
-
         try {
             String command = "curl -H \"Accept: text/plain\" https://icanhazdadjoke.com/";
             Process process = Runtime.getRuntime().exec(command);

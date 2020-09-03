@@ -14,7 +14,6 @@ public class Main extends ListenerAdapter {
     public static void main (String[] args) throws Exception {
         JDA builder = new JDABuilder(AccountType.BOT).setToken("NzQ5Njc4NzE2MjUwMjI2NzA4.X0vetg.Fn2urwHAGHdY5Erzlc865S40Nps").build();
         builder.addEventListener(new Filter());
-
         CommandClientBuilder cmd = new CommandClientBuilder();
         cmd.setOwnerId("749678716250226708");
         cmd.setPrefix("~");
@@ -63,6 +62,7 @@ public class Main extends ListenerAdapter {
         });
 
         cmd.addCommand(new anti());
+        cmd.addCommand(new send());
         cmd.addCommand(new ping());
         cmd.addCommand(new member());
         cmd.addCommand(new avatar());

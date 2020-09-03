@@ -17,8 +17,6 @@ public class geekJoke extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
-
         try {
             URL url = new URL("https://geek-jokes.sameerkumar.website/api");
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream()));
