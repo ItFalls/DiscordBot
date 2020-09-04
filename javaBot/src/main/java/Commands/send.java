@@ -12,6 +12,6 @@ public class send extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        e.reply("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
+        e.reply("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw().substring(e.getMessage().getContentRaw().indexOf(" ")));
     }
 }
