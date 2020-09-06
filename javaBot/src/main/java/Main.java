@@ -72,6 +72,7 @@ public class Main extends ListenerAdapter {
         cmd.addCommand(new dadJoke());
         cmd.addCommand(new geekJoke());
         cmd.addCommand(new corporate());
+        cmd.addCommand(new insult());
 
         CommandClient client = cmd.build();
         builder.addEventListener(client);

