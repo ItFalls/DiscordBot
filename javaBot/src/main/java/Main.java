@@ -21,9 +21,7 @@ public class Main extends ListenerAdapter {
         cmd.setActivity(new Activity() {
             @Override
             public boolean isRich() {
-                return true;
-            }
-
+                return true;}
             @Nullable
             @Override
             public RichPresence asRichPresence() {
@@ -33,13 +31,13 @@ public class Main extends ListenerAdapter {
             @NotNull
             @Override
             public String getName() {
-                return "Your Every Step";
+                return "Flying Obama Ecchi";
             }
 
             @Nullable
             @Override
             public String getUrl() {
-                return null;
+                return "https://media.discordapp.net/attachments/748734717825908778/765062481344331786/ao53s5xnfis51.png?width=596&height=475";
             }
 
             @NotNull
@@ -51,13 +49,13 @@ public class Main extends ListenerAdapter {
             @Nullable
             @Override
             public Timestamps getTimestamps() {
-                return new Timestamps(0,1);
+                return new Timestamps(-999999999,99999999);
             }
 
             @Nullable
             @Override
             public Emoji getEmoji() {
-                return null;
+                return new Emoji("U+1F440");
             }
         });
 
@@ -73,6 +71,7 @@ public class Main extends ListenerAdapter {
         cmd.addCommand(new geekJoke());
         cmd.addCommand(new corporate());
         cmd.addCommand(new insult());
+//        cmd.addCommand(new clear());
 
         CommandClient client = cmd.build();
         builder.addEventListener(client);

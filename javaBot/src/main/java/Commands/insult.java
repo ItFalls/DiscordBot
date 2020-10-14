@@ -21,15 +21,14 @@ public class insult extends Command {
             URL meme = new URL("https://insult.mattbas.org/api/insult");
             String prefix = "";
             if (e.getMessage().getContentRaw().split(" ").length > 1) {
-                prefix = e.getMessage().getContentRaw().split(" ")[1];
-                prefix = (prefix.charAt(0)+"").toUpperCase() + prefix.substring(1);
+                prefix = e.getMessage().getContentRaw().substring(e.getMessage().getContentRaw().indexOf(" ") + 1);
+                prefix = (prefix.charAt(0) + "").toUpperCase() + prefix.substring(1);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(meme.openConnection().getInputStream()));
                 String insult = reader.readLine();
                 reader.close();
-                insult = (insult.charAt(0)+"").toLowerCase() + insult.substring(1);
+                insult = (insult.charAt(0) + "").toLowerCase() + insult.substring(1);
                 e.getChannel().sendMessage(prefix + ", " + insult).queue();
-            }
-            else{
+            } else {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(meme.openConnection().getInputStream()));
                 e.getChannel().sendMessage(reader.readLine()).queue();
                 reader.close();

@@ -10,7 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -68,30 +67,25 @@ public class meme extends Command {
                 File file = new File(path);
                 file.deleteOnExit();
                 FileUtils.copyURLToFile(tempurl, file);
-
-                if(spoiler) {
-                    EmbedBuilder emb = new EmbedBuilder()
-                            .setTitle(title, post)
-                            // .setImage(url)
-                            .setColor(Color.orange)
-                            .setFooter("Subreddit: " + sub + " | Upvotes: " + upvotes);
+                EmbedBuilder emb = new EmbedBuilder()
+                        .setTitle(title, post)
+                        .setColor(e.getMember().getRoles().get(0).getColor())
+                        .setFooter("Subreddit: " + sub + "   |   Upvotes: " + upvotes + "   |   Requested By: " + e.getMember().getEffectiveName());
+                if(spoiler)
                     e.getChannel().sendFile(file, "cat.png", AttachmentOption.SPOILER).embed(emb.build()).queue();
-                }
-                else{
-                    EmbedBuilder emb = new EmbedBuilder()
-                            .setTitle(title, post)
-                            .setImage(url)
-                            .setColor(Color.orange)
-                            .setFooter("Subreddit: " + sub + " | Upvotes: " + upvotes);
+                else {
+                    emb.setImage(url);
                     e.getChannel().sendMessage(emb.build()).queue();
                 }
-            } else {
-                e.getChannel().sendMessage(":woman_gesturing_no:  No peeking at my OnlyFans :woman_gesturing_no: ").queue();
             }
-            e.getGuild().addRoleToMember(e.getGuild().getMembersByName("Ethe",true).get(0),e.getGuild().getRolesByName("Immortal",true).get(0)).complete();
+            else
+                e.getChannel().sendMessage(":woman_gesturing_no:  No peeking at my OnlyFans :woman_gesturing_no: ").queue();
+
         } catch (IOException | ParseException | IndexOutOfBoundsException | ClassCastException exception) {
             e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
             exception.printStackTrace();
         }
+
+        e.getMessage().delete().queue();
     }
 }

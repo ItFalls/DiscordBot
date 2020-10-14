@@ -15,5 +15,6 @@ public class fanclub extends Command {
         System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
 
         e.reply("Check out my OnlyFans : https://www.reddit.com/r/MikeWazowski/");
+        e.getMessage().delete().queue();
     }
 }

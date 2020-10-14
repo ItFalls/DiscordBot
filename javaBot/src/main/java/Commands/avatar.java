@@ -2,6 +2,7 @@ package Commands;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import net.dv8tion.jda.api.entities.User;
 
 import java.util.Objects;
 
@@ -14,9 +15,16 @@ public class avatar extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
-        System.out.println("[" + e.getAuthor().getName() + "]: " + e.getMessage().getContentRaw());
         String message = e.getMessage().getContentDisplay();
+        message = message.replaceAll("  ", " ");
+        String[] arr = message.split(" ");
 
-        e.getChannel().sendMessage(Objects.requireNonNull(e.getAuthor().getAvatarUrl())).queue();
+        if (arr.length == 1)
+            e.getChannel().sendMessage(Objects.requireNonNull(e.getAuthor().getAvatarUrl())).queue();
+
+        else {
+            User user = e.getMessage().getMentionedUsers().get(0);
+            e.getChannel().sendMessage(Objects.requireNonNull(user.getAvatarUrl())).queue();
+        }
     }
 }

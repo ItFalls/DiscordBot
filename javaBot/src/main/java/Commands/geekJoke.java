@@ -27,5 +27,6 @@ public class geekJoke extends Command {
             e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
             exception.printStackTrace();
         }
+        e.getMessage().delete().queue();
     }
 }

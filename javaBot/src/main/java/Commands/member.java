@@ -39,13 +39,12 @@ public class member extends Command {
                     emb.setColor(e.getMember().getRoles().get(0).getColor());
                 else
                     emb.setColor(Color.gray);
+                emb.setFooter("Requested By: " + e.getMember().getEffectiveName());
             }catch (IndexOutOfBoundsException exception){
-                e.getChannel().sendMessage(":no_entry: Something went wrong, f in the chat.").queue();
+                e.getChannel().sendMessage(":no_entry: Something went wrong, F in the chat.").queue();
                 exception.printStackTrace();
             }
         }
-
         e.getChannel().sendMessage(emb.build()).queue();
     }
-
 }
