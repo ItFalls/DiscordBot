@@ -17,6 +17,6 @@ public class Filter extends ListenerAdapter {
             e.getChannel().sendMessage("Steve? You mean the inferior bot?").queue();
 
         if (!e.getAuthor().isBot() && message.toLowerCase().contains("for xp"))
-            e.getChannel().sendMessage(":man_facepalming: smh this dood grinding for virtual levels :woman_facepalming:").queue();
+            e.getChannel().sendMessage("<:mike:750142207167692810> smh this dood grinding for virtual levels <:sulley:756739582187274290>").queue();
     }
 }

@@ -71,7 +71,9 @@ public class Main extends ListenerAdapter {
         cmd.addCommand(new geekJoke());
         cmd.addCommand(new corporate());
         cmd.addCommand(new insult());
-//        cmd.addCommand(new clear());
+        cmd.addCommand(new clear());
+        cmd.addCommand(new betterDiscord());
+        cmd.addCommand(new kill());
 
         CommandClient client = cmd.build();
         builder.addEventListener(client);

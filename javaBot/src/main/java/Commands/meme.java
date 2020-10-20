@@ -61,6 +61,7 @@ public class meme extends Command {
             reader.close();
 
             if (!nsfw) {
+                e.reply(e.getMember().getAsMention());
                 URL tempurl = new URL(url);
                 String tDir = System.getProperty("java.io.tmpdir");
                 String path = tDir + "tmp" + ".pdf";
@@ -70,7 +71,7 @@ public class meme extends Command {
                 EmbedBuilder emb = new EmbedBuilder()
                         .setTitle(title, post)
                         .setColor(e.getMember().getRoles().get(0).getColor())
-                        .setFooter("Subreddit: " + sub + "   |   Upvotes: " + upvotes + "   |   Requested By: " + e.getMember().getEffectiveName());
+                        .setFooter("Subreddit: " + sub + "   |   Upvotes: " + upvotes);
                 if(spoiler)
                     e.getChannel().sendFile(file, "cat.png", AttachmentOption.SPOILER).embed(emb.build()).queue();
                 else {
