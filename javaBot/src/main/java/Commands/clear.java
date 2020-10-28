@@ -4,6 +4,7 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
+
 import java.time.OffsetDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -18,30 +19,32 @@ public class clear extends Command {
 
     @Override
     protected void execute(CommandEvent e) {
+
+        TextChannel channel = e.getTextChannel();
+
+        OffsetDateTime time = OffsetDateTime.now().minus(1, ChronoUnit.HOURS);
+
+        new Thread(() ->
         {
-            TextChannel channel = e.getTextChannel();
+            List<Message> messages = channel.getHistory().retrievePast(50).complete();
+            ArrayList<Message> delete = new ArrayList<>();
 
-            OffsetDateTime time = OffsetDateTime.now().minus(1, ChronoUnit.HOURS);
+            int count = 0;
+            for (Message m : messages)
+                if (m.getTimeCreated().isAfter(time)) {
+                    if (m.getAuthor().isBot() || m.getContentStripped().charAt(0) == '~') {
+                        count++;
+                        delete.add(m);
+                        System.out.println("Deleting: " + m.toString());
+                    }
+                }
+            if (delete.isEmpty())
+                return;
+            else
+                channel.deleteMessages(delete).complete();
 
-            new Thread(() ->
-            {
-                List<Message> messages = channel.getHistory().retrievePast(50).complete();
-                ArrayList<Message> delete = new ArrayList<>();
-
-                for (Message m : messages)
-                    if (m.getTimeCreated().isAfter(time))
-                        if (m.getAuthor().isBot()) {
-                            delete.add(m);
-                            System.out.println("Deleting: " + m.toString());
-                        }
-
-                if (delete.isEmpty())
-                    return;
-                else
-                    channel.deleteMessages(delete).complete();
-            }).start();
-
-            e.getMessage().delete().queue();
-        }
+            e.reply("Deleted **" + count + "** Messages");
+        }).start();
+        e.getMessage().delete().queue();
     }
 }
