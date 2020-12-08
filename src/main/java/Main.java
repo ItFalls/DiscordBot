@@ -31,7 +31,7 @@ public class Main extends ListenerAdapter {
             @NotNull
             @Override
             public String getName() {
-                return "Flying Obama Ecchi";
+                return "TONIKAKU KAWAII !";
             }
 
             @Nullable

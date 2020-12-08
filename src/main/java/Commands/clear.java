@@ -22,11 +22,11 @@ public class clear extends Command {
 
         TextChannel channel = e.getTextChannel();
 
-        OffsetDateTime time = OffsetDateTime.now().minus(1, ChronoUnit.HOURS);
+        OffsetDateTime time = OffsetDateTime.now().minus(3, ChronoUnit.HOURS);
 
         new Thread(() ->
         {
-            List<Message> messages = channel.getHistory().retrievePast(50).complete();
+            List<Message> messages = channel.getHistory().retrievePast(99).complete();
             ArrayList<Message> delete = new ArrayList<>();
 
             int count = 0;
