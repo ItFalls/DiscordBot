@@ -11,7 +11,7 @@ public class betterDiscord extends Command {
     public betterDiscord() {
         this.name = "betterdiscord";
         this.aliases = new String[]{"themes","bd","theme"};
-        this.help = "command to show links for betterDiscord";
+        this.help = "[\"themes\",\"bd\",\"theme\"] command to show links for betterDiscord";
     }
 
     @Override

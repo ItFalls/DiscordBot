@@ -14,7 +14,7 @@ public class member extends Command {
     public member() {
         this.name = "member";
         this.aliases = new String[]{"mem", "me"};
-        this.help = "mem/member [User] - Tells you about the member";
+        this.help = "{\"mem\", \"me\"} member [User] - Tells you about the member";
     }
 
     @Override

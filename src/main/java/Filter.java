@@ -7,10 +7,12 @@ public class Filter extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
-        System.out.println("[" + e.getChannel().getName() + "] [" + e.getMember().getEffectiveName() + "]: " + e.getMessage().getContentRaw());
-        if (e.getMessage().getAttachments().size() > 0) {
-            for (int x = 0; x < e.getMessage().getAttachments().size(); x++) {
-                System.out.println(e.getMessage().getAttachments().get(0).getProxyUrl());
+        if(e.getMember() != null) {
+            System.out.println("[" + e.getChannel().getName() + "] [" + e.getMember().getEffectiveName() + "]: " + e.getMessage().getContentRaw());
+            if (e.getMessage().getAttachments().size() > 0) {
+                for (int x = 0; x < e.getMessage().getAttachments().size(); x++) {
+                    System.out.println(e.getMessage().getAttachments().get(0).getProxyUrl());
+                }
             }
         }
 

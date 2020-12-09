@@ -7,7 +7,7 @@ public class send extends Command {
     public send() {
         this.name = "send";
         this.aliases = new String[]{"message", "say"};
-        this.help = "Sends a message you want";
+        this.help = "{\"message\", \"say\"} Sends a message you want";
     }
 
     @Override

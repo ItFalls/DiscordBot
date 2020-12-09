@@ -7,7 +7,7 @@ public class kill extends Command {
     public kill(){
         this.name = "kill";
         this.aliases = new String[]{"bai"};
-        this.help = "Bye Bye!";
+        this.help = "[\"bai\"] Bye Bye!";
     }
 
     @Override

@@ -11,7 +11,7 @@ public class dadJoke extends Command {
     public dadJoke() {
         this.name = "dad";
         this.aliases = new String[]{"dadJoke"};
-        this.help = "Random dad joke";
+        this.help = "[dadJoke] Random dad joke";
     }
 
     @Override

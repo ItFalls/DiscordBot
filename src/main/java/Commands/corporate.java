@@ -17,7 +17,7 @@ public class corporate extends Command {
     public corporate() {
         this.name = "corporate";
         this.aliases = new String[]{"cor"};
-        this.help = "If you ever need some corporate bs";
+        this.help = "[cor] If you ever need some corporate bs";
     }
 
     @Override

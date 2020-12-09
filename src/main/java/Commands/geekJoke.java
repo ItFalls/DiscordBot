@@ -12,7 +12,7 @@ public class geekJoke extends Command {
     public geekJoke() {
         this.name = "geek";
         this.aliases = new String[]{"geekjoke"};
-        this.help = "Random unfunny joke";
+        this.help = "{\"geekjoke\"} Random unfunny joke";
     }
 
     @Override

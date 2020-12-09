@@ -7,7 +7,7 @@ public class fanclub extends Command {
     public fanclub() {
         this.name = "fanclub";
         this.aliases = new String[]{"onlyfans"};
-        this.help = "For checking out my fanclub";
+        this.help = "[onlyfans] For checking out my fanclub";
     }
 
     @Override

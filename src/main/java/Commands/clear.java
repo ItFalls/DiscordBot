@@ -14,7 +14,7 @@ public class clear extends Command {
     public clear() {
         this.name = "clear";
         this.aliases = new String[]{"purge"};
-        this.help = "Clears messages sent by bots";
+        this.help = "[purge] Clears messages sent by bots";
     }
 
     @Override

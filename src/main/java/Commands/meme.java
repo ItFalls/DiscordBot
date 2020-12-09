@@ -20,7 +20,7 @@ public class meme extends Command {
     public meme() {
         this.name = "meme";
         this.aliases = new String[]{"memes", "reddit"};
-        this.help = "meme : Random meme | meme [subreddit] : Meme from subreddit";
+        this.help = "[\"memes\", \"reddit\"] meme : Random meme | meme [subreddit] : Meme from subreddit";
     }
 
     @Override

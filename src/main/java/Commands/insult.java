@@ -12,7 +12,7 @@ public class insult extends Command {
     public insult() {
         this.name = "insult";
         this.aliases = new String[]{"roast"};
-        this.help = "insult [name] | Random Insult";
+        this.help = "{roast} insult [name] | Random Insult";
     }
 
     @Override
