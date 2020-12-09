@@ -26,7 +26,7 @@ public class clear extends Command {
 
         new Thread(() ->
         {
-            List<Message> messages = channel.getHistory().retrievePast(99).complete();
+            List<Message> messages = channel.getHistory().retrievePast(50).complete();
             ArrayList<Message> delete = new ArrayList<>();
 
             int count = 0;

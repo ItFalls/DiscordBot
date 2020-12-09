@@ -31,7 +31,7 @@ public class Main extends ListenerAdapter {
             @NotNull
             @Override
             public String getName() {
-                return "TONIKAKU KAWAII !";
+                return "AKUDAMA DRIVE";
             }
 
             @Nullable
@@ -49,7 +49,7 @@ public class Main extends ListenerAdapter {
             @Nullable
             @Override
             public Timestamps getTimestamps() {
-                return new Timestamps(-999999999,99999999);
+                return new Timestamps(0,999);
             }
 
             @Nullable
