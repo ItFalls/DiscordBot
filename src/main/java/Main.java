@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class Main extends ListenerAdapter {
     public static void main (String[] args) throws Exception {
-        JDA builder = JDABuilder.createDefault("NzQ5Njc4NzE2MjUwMjI2NzA4.X0vetg.Fn2urwHAGHdY5Erzlc865S40Nps").build();
+        JDA builder = JDABuilder.createDefault("NzQ5Njc4NzE2MjUwMjI2NzA4.G1DGwx.Tavv8ELIh_4qOkmaDZhMRBthg5-pJ3pUv6UWNk").build();
         builder.addEventListener(new Filter());
         CommandClientBuilder cmd = new CommandClientBuilder();
         cmd.setOwnerId("749678716250226708");
@@ -31,7 +31,7 @@ public class Main extends ListenerAdapter {
             @NotNull
             @Override
             public String getName() {
-                return "h a n i m e . t v";
+                return "Weathering With You";
             }
 
             @Nullable
